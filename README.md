@@ -57,21 +57,19 @@ less wordpress-deployment.yaml
 # Kustomize
 <!-- TODO: why kustomize -->
 <!-- TODO: can you include files that are in one env and not the other -->
-## Common Problems With Maintaining Resources
+## Common Problems With Maintaining Resources Solely Using Manifests
 - Spinning up multiple iterations of one application is common (e.g. dev, stage, prod environments)
 - Manifests can be large and may contain many configurations that are repeated across all iterations
 - Copy/pasting large blocks of text can lead to mistakes and is not DRY (Do not Repeat Yourself)
 - Making a change to persist across all iterations is tedious
 
 ## How Kustomize Helps
+- Multiple environments can share base manifests
+  - changing a base manifest persists across all environments
+- Individual elements in the base manifests can be changed with patches unique to each environment
+  - Applying patches only persists in one environment
 
-## Creating Environments for stage and production
-
-## Create projects
-```
-oc new-project wordpress-stg
-oc new-project wordpress-prod
-```
+## Kustomize Project Structure
 
 ## kustomize.yaml
 
@@ -80,3 +78,13 @@ oc new-project wordpress-prod
 ## Overlays
 
 ## Patches
+
+## Demo
+
+### Creating Environments for stage and production
+
+### Create projects for stage and production
+```
+oc new-project wordpress-stg
+oc new-project wordpress-prod
+```
