@@ -1,4 +1,9 @@
 kind: Kustomization
 resources:
-- wordpress
-- mysql
+  - wordpress
+  - mysql
+
+secretGenerator:
+  - name: mysql-pass
+    literals:
+      - password=t3stp@55
