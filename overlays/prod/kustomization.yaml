@@ -2,9 +2,11 @@ kind: Kustomization
 resources:
   - ../../manifests
 patches:
+  # namespace patch
   - path: prod-namespace.yaml
     target:
       kind: Deployment
       name: wordpress
+  # add more resources
 
 # TODO: finish this
