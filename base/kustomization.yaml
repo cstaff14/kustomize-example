@@ -5,7 +5,7 @@ resources: # directories (or single files) to pull manifests from
 
 secretGenerator:
   - name: mysql-pass
-    namespace: wordpress-dev
-    label: app=wordpress-dev
+    options:
+      disableNameSuffixHash: true
     literals:
       - password=t3stp@55
