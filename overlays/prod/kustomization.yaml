@@ -3,9 +3,11 @@ resources:
   - ../../manifests # directory that also has a kustomization.yaml to import
 patches:
   - target: # resource we want to patch
-      kind: Deployment
+      labelSelector: app=wordpress # all resources with this label
+    path: wordpress-prod-ns-patch.yaml # patch file
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment # only deployments named wordpress
       name: wordpress
-    path: wordpress-deployment-patches.yaml # patch file
-  # add more resources
-
-# TODO: finish this
+    path: patch-replicas.yaml
