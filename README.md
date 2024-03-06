@@ -171,13 +171,7 @@ resources:
 
 ## Bases and Overlays
 - A *base* is a directory with a `kustomization.yaml`, which contains a set of resources and associated customization
-
-TODO: add base kustomization
-
 - An *overlay* is a directory with a `kustomization.yaml` that refers to other kustomization directories as its bases
-
-TODO: add overlay kustomization
-
 - A *base* has no knowledge of an *overlay* and can be used in multiple overlays. An overlay may have multiple bases and it composes all resources from bases and may also have customization on top of them
 ## Patches
 - These are yaml manifests that describe the changes to be made for each environment
@@ -197,7 +191,12 @@ spec:
   value: # value we want to use for patching
     wordpress-prod.apps.ocp4.example.com
 ```
-
+- in the case where there are multiple resources in the yaml path we can target one by using its sequential value (starting from 0). The following will apply the change to the first container definition
+```
+- op: replace
+  path: /spec/template/spec/containers/0/name
+  value: wordpress-stg
+```
 ## Demo
 ### Prod
 Create a project for Prod resources
