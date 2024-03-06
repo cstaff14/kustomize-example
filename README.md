@@ -22,18 +22,20 @@ oc create secret generic mysql-pass --from-literal=password=t3stp@55
 
 # YAML Manifests
 <!-- TODO: why yaml manifests -->
-Created resources can be edited using the 
-## You can create them one manifest at a time using create or apply
+- k8s resources can be created or edited by using yaml files stored on your local machine
+- This allows you to edit k8s resources using whatever text editor you see fit
+- These manifests can be stored in a git repo to be shared across teams and leverage GitOps
+## You can create them one manifest at a time using `oc create`
 ```
 cd base/mysql
 oc create -f deployment.yaml
-oc apply -f pvc.yaml
+oc create -f pvc.yaml
 oc create -f service.yaml
 ```
 
-## After an edit you can rerun apply to update the resource
+## After an edit you can run `oc apply` to update the resource
 NOTE: you can use any editor you like; vim, emacs, code, etc.
-<!-- edit yaml file on prev resource and apply (TODO:verify if this can also be done with create)-->
+<!-- edit yaml file on prev resource and apply -->
 ```
 gedit deployment.yaml
 oc apply -f deployment.yaml
@@ -57,8 +59,6 @@ less wordpress-deployment.yaml
 ```
 
 # Kustomize
-<!-- TODO: why kustomize -->
-<!-- TODO: can you include files that are in one env and not the other -->
 ## Common Problems With Maintaining Resources Solely Using Manifests
 - Spinning up multiple iterations of one application is common (e.g. dev, stage, prod environments)
 - Manifests can be large and may contain many configurations that are repeated across all iterations
@@ -73,27 +73,32 @@ less wordpress-deployment.yaml
 
 ## Kustomize Project Structure
 ```
-castaffo@castaffo-mac kustomize-example % tree                   
-.
-├── README.md
 ├── base
-│   ├── kustomize.yaml
+│   ├── kustomization.yaml
 │   ├── mysql
 │   │   ├── deployment.yaml
+│   │   ├── kustomization.yaml
 │   │   ├── pvc.yaml
 │   │   └── service.yaml
 │   ├── mysql-whole-manifest.yaml
 │   ├── wordpress
 │   │   ├── deployment.yaml
+│   │   ├── kustomization.yaml
 │   │   ├── pvc.yaml
+│   │   ├── route.yaml
 │   │   └── service.yaml
 │   └── wordpress-whole-manifest.yaml
 └── overlays
     ├── prod
     │   ├── kustomization.yaml
-    │   └── wordpress-deployment-patches.yaml
+    │   ├── patch-hostname.yaml
+    │   ├── patch-replicas.yaml
+    │   └── wordpress-prod-ns-patch.yaml
     └── stg
-        └── kustomization.yaml
+        ├── kustomization.yaml
+        ├── patch-hostname.yaml
+        ├── patch-podname.yaml
+        └── wordpress-stg-ns-patch.yaml
 ```
 NOTE: `wordpress-whole-manifest.yaml` and `mysql-whole-manifest.yaml` are not used in the kustomize structure and are only to demonstrate manifests in the secion above
 
@@ -236,7 +241,7 @@ Create a project for Stage resources
 ```
 oc new-project wordpress-stg
 ```
-Apply prod kustomizations and view new resources
+Apply  kustomizations and view new resources
 ```
 oc apply -k overlays/stg
 
