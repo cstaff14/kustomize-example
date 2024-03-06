@@ -1,5 +1,5 @@
 kind: Kustomization
-resources:
+resources: # directories (or single files) to pull manifests from
   - wordpress
   - mysql
 

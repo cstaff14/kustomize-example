@@ -1,0 +1,10 @@
+# Use Prod Namespace
+- op: add # action
+  path: /metadata/namespace # yaml path to the resource we want to change
+  value: # value we want to use for patching
+    wordpress-prod
+# Increase resources
+- op: replace
+# change wordpress db names
+
+# TODO: maybe add namespaces to the base manifests and demonstrate the replace action with the prod namespace
