@@ -6,6 +6,10 @@ patches:
       labelSelector: app=wordpress # all resources with this label
     path: wordpress-prod-ns-patch.yaml # patch file
   - target:
+      kind: Route
+      name: wordpress
+    path: patch-hostname.yaml
+  - target:
       group: apps
       version: v1
       kind: Deployment # only deployments named wordpress

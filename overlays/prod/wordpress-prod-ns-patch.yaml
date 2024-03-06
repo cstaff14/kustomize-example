@@ -2,8 +2,4 @@
 - op: replace # action (replace or add)
   path: /metadata/namespace # yaml path to the resource we want to change
   value: # value we want to use for patching
-    wordpress-prod
-
-# change wordpress db names
-
-# TODO: maybe add namespaces to the base manifests and demonstrate the replace action with the prod namespace
+    wordpress-dev.apps.ocp4.example.com

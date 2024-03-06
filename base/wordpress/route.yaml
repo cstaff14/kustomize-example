@@ -1,1 +1,14 @@
 #TODO
+apiVersion: route.openshift.io/v1
+metadata:
+  name: wordpress
+  namespace: wordpress-dev
+  labels:
+    app: wordpress
+spec:
+  host: wordpress-dev.apps.ocp4.example.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: wordpress
