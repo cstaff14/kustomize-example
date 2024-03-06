@@ -107,7 +107,7 @@ These contain references to resources, patches applied to those resources and de
 
 ### base/app/kustomization.yaml
 - resources are the yaml manifest for each app
-- lowest level must have only individual file names
+- lowest level resources must have only individual file names
 - referenced by `base/kustomization.yaml`
 ```
 kind: Kustomization
