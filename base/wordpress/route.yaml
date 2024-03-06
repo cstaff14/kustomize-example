@@ -1,5 +1,5 @@
-#TODO
 apiVersion: route.openshift.io/v1
+kind: Route
 metadata:
   name: wordpress
   namespace: wordpress-dev

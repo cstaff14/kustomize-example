@@ -71,3 +71,18 @@ spec:
       - name: wordpress-persistent-storage
         persistentVolumeClaim:
           claimName: wp-pv-claim
+---
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: wordpress
+  namespace: wordpress-dev
+  labels:
+    app: wordpress
+spec:
+  host: wordpress-dev.apps.ocp4.example.com
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: wordpress
