@@ -2,4 +2,4 @@
 - op: replace # action (replace or add)
   path: /metadata/namespace # yaml path to the resource we want to change
   value: # value we want to use for patching
-    wordpress-dev.apps.ocp4.example.com
+    wordpress-prod
