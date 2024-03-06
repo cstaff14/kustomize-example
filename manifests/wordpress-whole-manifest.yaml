@@ -18,6 +18,7 @@ kind: PersistentVolumeClaim
 namespace: wordpress-dev
 metadata:
   name: wp-pv-claim
+  namespace: wordpress-dev
   labels:
     app: wordpress
 spec:
