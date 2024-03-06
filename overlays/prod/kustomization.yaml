@@ -1,6 +1,6 @@
 kind: Kustomization
 resources:
-  - ../../manifests
+  - ../../manifests # directory that also has a kustomization.yaml to import
 patches:
   - target: # resource we want to patch
       kind: Deployment
