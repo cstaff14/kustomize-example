@@ -186,7 +186,11 @@ TODO: add yaml structure and liken it to a file tree
 - TODO: include changing a container name to demonstrate the location
 
 ## Demo
+```
+oc new-project wordpress-prod
+```
 
+### Prod
 ### Creating Environments for stage and production
 
 ### Create projects for stage and production

@@ -1,4 +1,15 @@
 kind: Kustomization
 resources:
-- ../../base
+  - ../../base
 patches:
+  - target: # resource we want to patch
+      labelSelector: app=wordpress # all resources with this label
+    path: wordpress-stg-ns-patch.yaml # patch file
+  - target:
+      kind: Route
+      name: wordpress
+    path: patch-hostname.yaml
+  - target:
+      kind: Deployment
+      name: wordpress
+    path: patch-podname.yaml
