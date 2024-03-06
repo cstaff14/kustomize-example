@@ -1,6 +1,6 @@
 kind: Kustomization
 resources:
-  - ../../manifests # directory that also has a kustomization.yaml to import
+  - ../../base # directory that also has a kustomization.yaml to import
 patches:
   - target: # resource we want to patch
       labelSelector: app=wordpress # all resources with this label

@@ -1,4 +1,4 @@
 kind: Kustomization
 resources:
-- ../../manifests
+- ../../base
 patches:

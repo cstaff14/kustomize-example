@@ -25,7 +25,7 @@ oc create secret generic mysql-pass --from-literal=password=t3stp@55
 Created resources can be edited using the 
 ## You can create them one manifest at a time using create or apply
 ```
-cd manifests/mysql
+cd base/mysql
 oc create -f deployment.yaml
 oc apply -f pvc.yaml
 oc create -f service.yaml
@@ -36,7 +36,7 @@ NOTE: you can use any editor you like; vim, emacs, code, etc.
 <!-- edit yaml file on prev resource and apply (TODO:verify if this can also be done with create)-->
 ```
 gedit deployment.yaml
-oc apply -f manifest.yaml
+oc apply -f deployment.yaml
 ```
 
 ## Defining Multiple Resources in One Manifest
@@ -76,7 +76,7 @@ less wordpress-deployment.yaml
 castaffo@castaffo-mac kustomize-example % tree                   
 .
 ├── README.md
-├── manifests
+├── base
 │   ├── kustomize.yaml
 │   ├── mysql
 │   │   ├── deployment.yaml
@@ -99,7 +99,7 @@ NOTE: `wordpress-whole-manifest.yaml` and `mysql-whole-manifest.yaml` are not us
 
 ## kustomization files
 
-### manifests/kustomize.yaml
+### base/kustomize.yaml
 - Base layer kustomization definition
 - Referenced by overlay kustomizations
   - overlays use the resources described here as well
