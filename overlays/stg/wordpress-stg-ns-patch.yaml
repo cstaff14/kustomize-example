@@ -1,0 +1,5 @@
+# Use Prod Namespace
+- op: replace # action (replace or add)
+  path: /metadata/namespace # yaml path to the resource we want to change
+  value: # value we want to use for patching
+    wordpress-stg
