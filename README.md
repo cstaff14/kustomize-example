@@ -16,7 +16,7 @@ oc create secret --help | fold -s | less
 # Creating resources using a command
 First, create a project for the manifests we're going to create
 ```
-oc new-project wordpress-dev
+oc new-project wordpress-dev-{your user}
 oc create secret generic mysql-pass --from-literal=password=t3stp@55
 ```
 
