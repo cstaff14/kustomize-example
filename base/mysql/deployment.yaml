@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: wordpress-mysql
   labels:
-    app: wordpres
+    app: wordpress
 spec:
   selector:
     matchLabels:
