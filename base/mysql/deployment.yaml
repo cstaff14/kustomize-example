@@ -1,11 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: wordpress-dev
   name: wordpress-mysql
   labels:
-    app: wordpress
-spec:
+    app: wordpresspec:
   selector:
     matchLabels:
       app: wordpress

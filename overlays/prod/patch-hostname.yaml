@@ -1,4 +1,4 @@
-- op: replace # action (replace or add)
-  path: /spec/host # yaml path to the resource we want to change
-  value: # value we want to use for patching
-    wordpress-prod.apps.ocp4.example.com
+# - op: replace # action (replace or add)
+#   path: /spec/host # yaml path to the resource we want to change
+#   value: # value we want to use for patching
+#     wordpress-prod.apps.ocp4.example.com
