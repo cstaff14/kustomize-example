@@ -80,7 +80,7 @@ metadata:
   labels:
     app: wordpress
 spec:
-  host: wordpress-dev.apps.ocp4.example.com
+  host: wordpress-dev.apps.cluster-m795l.dynamic.redhatworkshops.io
   port:
     targetPort: 8080
   to:
