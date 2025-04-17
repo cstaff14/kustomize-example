@@ -206,7 +206,7 @@ spec:
 ### Prod
 Create a project for Prod resources
 ```
-oc new-project wordpress-prod
+oc new-project wordpress-prod-{your user}
 ```
 Apply prod kustomizations
 ```
@@ -239,7 +239,7 @@ route.route.openshift.io/wordpress   wordpress-prod.apps.ocp4.example.com       
 ### Stage
 Create a project for Stage resources
 ```
-oc new-project wordpress-stg
+oc new-project wordpress-stg-{your user}
 ```
 Apply  kustomizations and view new resources
 ```

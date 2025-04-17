@@ -1,4 +1,4 @@
-- op: replace
-  path: /spec/host
-  value:
-    wordpress-stg.apps.ocp4.example.com
+# - op: replace
+#   path: /spec/host
+#   value:
+#     wordpress-stg.apps.ocp4.example.com
